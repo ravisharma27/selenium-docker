@@ -12,7 +12,30 @@ services:
       - HUB_HOST=hub
   firefox:
     image: selenium/node-firefox:3.141.59
+    shm_size: '512m'
     depends_on:
       - hub
     environment:
       - HUB_HOST=hub
+  search-module:
+    image: ravisharma2780/selenium-docker1
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - BROWSER=chrome
+      - HUB_HOST=hub
+      - MODULE=search-module.xml
+    volumes:
+      - /c/Users/ravi.sharma/IntelliJProjects/search-result:/usr/share/udemy/test-output
+  book-flight-module:
+    image: ravisharma2780/selenium-docker1
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - BROWSER=firefox
+      - HUB_HOST=hub
+      - MODULE=book-flight-module.xml
+    volumes:
+      - /c/Users/ravi.sharma/IntelliJProjects/book-result:/usr/share/udemy/test-output
