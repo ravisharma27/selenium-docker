@@ -12,4 +12,8 @@ do
 done
 
 # start the java command
-java -cp selenium-docker.jar:selenium-docker-tests.jar:libs/* -DHUB_HOST=$HUB_HOST -DBROWSER=$BROWSER org.testng.TestNG $MODULE;
+# shellcheck disable=SC1073
+while [$HUB_HOST = "hub"];
+do
+  java -cp selenium-docker.jar:selenium-docker-tests.jar:libs/* -DHUB_HOST=$HUB_HOST -DBROWSER=$BROWSER org.testng.TestNG $MODULE;
+done
