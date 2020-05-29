@@ -21,4 +21,4 @@ ADD healthcheck.sh                      healthcheck.sh
 # BROWSER
 # HUB_HOST
 # MODULE
-ENTRYPOINT bat healthcheck.bat
+ENTRYPOINT sh healthcheck.sh
