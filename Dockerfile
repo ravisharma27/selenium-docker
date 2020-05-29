@@ -8,7 +8,7 @@ WORKDIR /usr/share/udemy
 # inside this image
 ADD target/selenium-docker.jar          selenium-docker.jar
 ADD target/selenium-docker-tests.jar    selenium-docker-tests.jar
-ADD target/libs                        libs
+ADD target/libs                         libs
 
 # In case of any other dependencies like .csv/.json/.xlsx, please add that as well
 # ADD suite files
@@ -21,4 +21,4 @@ ADD healthcheck.sh                      healthcheck.sh
 # BROWSER
 # HUB_HOST
 # MODULE
-ENTRYPOINT sh healthcheck.sh
+ENTRYPOINT bat healthcheck.sh
